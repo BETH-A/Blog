@@ -5,12 +5,16 @@
 <p><%= startingContent %></p>
 
 <div class="box">
-  <% for (var i=0; i<posts.length; i++) { %>
-  </posts.length;>
-  <div class="item">
-    <p> <%= posts[i] %></p>
-  </div>
-  <% } %>
+    <% posts.forEach(function(post) { %>
+        <div class="item">
+          <h1> <%= post.title %></h1>
+          <p> <%= post.content.substring(0,100) + "..."%>
+            <a href="/posts/<%= post.title %>">Read More</a>
+          </p>
+        </div>
+      <%});%>
+
+
 </div>
 
 <%- include('partials/footer'); -%>
